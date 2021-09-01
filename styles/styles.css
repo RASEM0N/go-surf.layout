@@ -1,0 +1,913 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SF Display Pro";
+  font-weight: normal;
+  font-display: swap;
+  src: url("fonts/SF-Pro-Display-Regular.woff") format("woff"), url("fonts/SF-Pro-Display-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SF Display Pro";
+  font-weight: bold;
+  font-display: swap;
+  src: url("fonts/SF-Pro-Display-Bold.woff") format("woff"), url("fonts/SF-Pro-Display-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Age";
+  font-weight: normal;
+  font-display: swap;
+  src: url("fonts/spaceagecyrillic-regular.woff") format("woff"), url("fonts/spaceagecyrillic-regular.ttf") format("ttf");
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+button:hover {
+  background-color: rgba(0, 27, 161, 0.08);
+  transform: scale(1.01);
+}
+
+body {
+  font-family: "SF Display Pro", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  background-color: rgba(2, 2, 2, 0.7);
+  position: relative;
+  overflow-x: hidden !important;
+  overflow-y: scroll;
+}
+
+.page {
+  padding: 100px 0;
+  min-height: 100vh;
+}
+.page__title {
+  font-family: "Space Age", sans-serif;
+  font-size: 48px;
+  line-height: 48px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 100px;
+  max-width: 576px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1220px;
+}
+
+.table {
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: lowercase;
+}
+.table__list {
+  display: flex;
+}
+.table__item {
+  flex: 1;
+}
+.table__title {
+  border-top: 1px solid #ffffff;
+  padding: 10px 0;
+}
+.table__info {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 10px 0;
+}
+.table__info-count {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 43px;
+  margin-bottom: 1px;
+}
+.table__info-unit {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+}
+.table__extra {
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  text-transform: lowercase;
+  color: #e5e5e5;
+  margin-top: 20px;
+}
+.table__extra::before {
+  content: "✱";
+  margin-right: 7.2px;
+}
+
+.constellation {
+  position: relative;
+  width: 843px;
+  height: 603px;
+}
+.constellation__star {
+  position: absolute;
+  display: flex;
+}
+.constellation__star-circle {
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.constellation__star-text {
+  font-size: 18px;
+  line-height: 21px;
+  transition: all 0.3s ease;
+}
+.constellation__star::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  z-index: 0;
+  height: 2px;
+}
+.constellation__star:nth-of-type(1) {
+  top: 0;
+  left: 0;
+}
+.constellation__star:nth-of-type(1)::after {
+  transform: rotate(29.66deg);
+  top: 48px;
+  left: 0;
+  width: 159px;
+}
+.constellation__star:nth-of-type(2) {
+  top: 77px;
+  left: 141px;
+}
+.constellation__star:nth-of-type(2)::after {
+  transform: rotate(59.31deg);
+  top: 58px;
+  left: -20px;
+  width: 121px;
+}
+.constellation__star:nth-of-type(3) {
+  top: 178px;
+  left: 205px;
+}
+.constellation__star:nth-of-type(3)::after {
+  transform: rotate(59.31deg);
+  top: 80px;
+  left: -20px;
+  width: 140px;
+}
+.constellation__star:nth-of-type(4) {
+  left: 276px;
+  bottom: 275px;
+}
+.constellation__star:nth-of-type(4)::after {
+  transform: rotate(25deg);
+  top: 70px;
+  left: -6px;
+  width: 296px;
+}
+.constellation__star:nth-of-type(5) {
+  top: 426px;
+  left: 536px;
+}
+.constellation__star:nth-of-type(5) .constellation__star-circle {
+  width: 60px;
+}
+.constellation__star:nth-of-type(5)::after {
+  transform: rotate(324deg);
+  top: 63px;
+  left: -146px;
+  width: 170px;
+}
+.constellation__star:nth-of-type(6) {
+  display: block;
+  top: 526px;
+  left: 396px;
+}
+.constellation__star:nth-of-type(6) .constellation__star-text {
+  margin-top: 15px;
+}
+.constellation__star:nth-of-type(6)::after {
+  transform: rotate(35.44deg);
+  top: -52px;
+  left: -185px;
+  width: 215px;
+}
+.constellation__star:nth-of-type(7) {
+  left: 5px;
+  bottom: 176px;
+}
+.constellation__star:nth-of-type(7) .constellation__star-circle {
+  margin: 0 0 0 15px;
+}
+.constellation__star:nth-of-type(7) .constellation__star-text {
+  order: -1;
+}
+.constellation__star:nth-of-type(7)::after {
+  transform: rotate(117.27deg);
+  top: -40px;
+  left: 199px;
+  width: 115px;
+}
+
+.additional__title {
+  font-family: "Space Age", sans-serif;
+  font-size: 48px;
+  line-height: 48px;
+  margin-bottom: 100px;
+  max-width: 600px;
+}
+.additional__box {
+  display: flex;
+  margin-bottom: 12px;
+}
+.additional__info {
+  margin-right: 83px;
+}
+.additional__info-title {
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 25px;
+}
+.additional__list {
+  list-style: none;
+}
+.additional__item {
+  display: flex;
+}
+.additional__item::before {
+  content: "";
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: translateY(4px);
+  display: inline-block;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.additional__item-text {
+  font-size: 24px;
+  line-height: 29px;
+}
+.additional__group {
+  position: relative;
+  flex: 1;
+}
+.additional__group::before {
+  content: url("images/special_cosmonaut.png");
+  position: absolute;
+  right: 0;
+  top: -129px;
+}
+.additional__btn {
+  display: block;
+  width: 100%;
+}
+.additional__btn + .additional__btn {
+  margin-top: 50px;
+}
+.additional__subtitle {
+  font-size: 12px;
+  line-height: 14px;
+  color: #e5e5e5;
+}
+
+.slider {
+  border: 1px solid #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 74px;
+}
+.slider__btn_type_right svg {
+  transform: rotate(180deg);
+}
+.menu__list {
+  display: flex;
+}
+.menu__item {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 21px;
+  transition: color 0.3s ease;
+}
+.menu__item + .menu__item {
+  margin-left: 30px;
+}
+.menu__item:hover {
+  color: #cb0e0e;
+}
+.menu__btn {
+  display: none;
+  padding-top: 8px;
+  width: 40px;
+}
+.menu__btn span {
+  background-color: white;
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  width: 40px;
+  height: 3px;
+}
+.menu__btn span::before, .menu__btn span::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+}
+.menu__btn span::before {
+  top: -7px;
+}
+.menu__btn span::after {
+  bottom: -7px;
+  width: 50%;
+}
+
+.phone {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.btn {
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: uppercase;
+  border: 1px solid #ffffff;
+  padding: 20px 10px;
+}
+
+.input {
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 20px;
+}
+
+.input::placeholder {
+  font-family: "SF Display Pro", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.header {
+  background-image: url("images/cover_bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 78px;
+  padding-bottom: 142px;
+  min-height: 100vh;
+}
+.header::before {
+  content: "";
+  background: linear-gradient(180deg, #010203 0%, rgba(1, 2, 3, 0) 100%);
+  transform: rotate(-180deg);
+  position: absolute;
+  top: 45%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 78px - 142px);
+}
+.header__top {
+  display: flex;
+  align-items: center;
+}
+.header__menu {
+  flex: 1;
+}
+.header__phone {
+  margin-right: 22px;
+}
+.header__login {
+  margin-right: 120px;
+}
+.header__content {
+  z-index: 1;
+  align-self: flex-start;
+  margin-top: 100px;
+  max-width: 600px;
+}
+.header__title {
+  font-family: "Space Age", sans-serif;
+  font-size: 60px;
+  line-height: 60px;
+  margin-bottom: 35px;
+}
+.header__title span {
+  font-size: 110px;
+  line-height: 65px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+}
+.header__text {
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.header__btn {
+  font-size: 24px;
+  line-height: 29px;
+  text-transform: uppercase;
+  border: 1px solid #ffffff;
+  padding: 15px 0;
+  width: 100%;
+}
+.header__description {
+  z-index: 1;
+  display: flex;
+  align-self: flex-end;
+}
+.header__description-text {
+  width: 165px;
+}
+.header__description-text + .header__description-text {
+  margin-left: 52px;
+}
+
+.about-us {
+  background-image: url("images/us&special_bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.about-us::before {
+  content: "";
+  background: linear-gradient(180deg, #010203 8.85%, rgba(1, 2, 3, 0) 86.98%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 450px;
+}
+.about-us__inner {
+  position: relative;
+}
+.about-us__box {
+  display: flex;
+}
+.about-us__box + .about-us__box {
+  margin-top: 100px;
+}
+.about-us__box_type_reverse .about-us__box-content {
+  order: -1;
+}
+.about-us__box_type_reverse .about-us__box-img {
+  margin-right: 0;
+  margin-left: 100px;
+}
+.about-us__box-img {
+  margin-right: 100px;
+}
+.about-us__box-img img {
+  transition: all 0.6s ease-in-out;
+}
+.about-us__box-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.about-us__box-title {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 5px;
+}
+.about-us__box-path {
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #036cca;
+  margin-bottom: 30px;
+}
+.about-us__box-description {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.about-us__box-text {
+  font-size: 16px;
+  line-height: 19px;
+  max-width: 166px;
+}
+.about-us__table {
+  flex: 1;
+}
+.about-us__box-btn {
+  font-size: 18px;
+  line-height: 21px;
+  border: 1px solid #ffffff;
+  padding: 20px 10px;
+  width: 50%;
+}
+
+.how {
+  background-image: url("images/how_bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.how::before {
+  content: "";
+  background: linear-gradient(180deg, #010203 0%, rgba(1, 2, 3, 0) 100%);
+  transform: rotate(-180deg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 63%;
+}
+.how__inner {
+  position: relative;
+  z-index: 10;
+}
+.how__constellation {
+  margin: 0 auto;
+}
+
+.booking {
+  background-image: url("images/booking_bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.booking::before {
+  content: "";
+  background: linear-gradient(180deg, #010203 8.85%, rgba(1, 2, 3, 0) 86.98%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.booking__container {
+  display: flex;
+  justify-content: space-between;
+}
+.booking__description {
+  display: flex;
+  position: relative;
+}
+.booking__description-text {
+  font-size: 14px;
+  line-height: 17px;
+  max-width: 165px;
+}
+.booking__description-text + .booking__description-text {
+  margin-left: 53px;
+}
+
+.special {
+  background-image: url("images/us&special_bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.special::before {
+  content: "";
+  background: linear-gradient(180deg, #010203 0%, rgba(1, 2, 3, 0) 84.9%);
+  transform: rotate(-180deg);
+  position: absolute;
+  top: 65%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.special__inner {
+  position: relative;
+}
+.special__additional {
+  margin-bottom: 200px;
+}
+.special__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 150px;
+}
+.special__item-info {
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-top: 43px;
+  padding-bottom: 38px;
+  width: 500px;
+  height: 400px;
+}
+.special__item-text {
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  max-width: 236px;
+}
+.special__item-text span {
+  color: #cb0e0e;
+}
+.special__price {
+  position: relative;
+}
+.special__price-old {
+  font-size: 14px;
+  line-height: 17px;
+  color: #e5e5e5;
+  position: absolute;
+  top: -32px;
+  right: -60px;
+}
+.special__price-old::before {
+  content: "";
+  border: 1px solid #cb0e0e;
+  transform: rotate(17.1deg);
+  position: absolute;
+  top: 7px;
+  width: 68px;
+}
+.special__price-now {
+  font-size: 48px;
+  line-height: 57px;
+}
+.special__item-btn {
+  width: 100%;
+}
+.special__subtitle {
+  font-family: "Space Age", sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 50px;
+}
+
+.contacts {
+  background-color: #010203;
+}
+.contacts__inner-top {
+  display: flex;
+  margin-bottom: 100px;
+}
+.contacts__box {
+  flex: 1;
+}
+.contacts__box + .contacts__box {
+  margin-left: 150px;
+}
+.contacts__box-title {
+  font-family: "Space Age", sans-serif;
+  font-size: 48px;
+  line-height: 48px;
+  margin-bottom: 46px;
+}
+.contacts__box-text {
+  font-size: 24px;
+  line-height: 29px;
+}
+.contacts__inner-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.contacts__input {
+  display: block;
+}
+.contacts__input + .contacts__input {
+  margin-top: 60px;
+}
+.contacts__form-btn {
+  margin-top: 70px;
+}
+.footer {
+  background-image: url("images/footer_ng.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 100px;
+  height: 433px;
+}
+.footer::before {
+  content: "";
+  background: linear-gradient(180deg, #010203 9.9%, rgba(1, 2, 3, 0) 100%);
+  transform: rotate(-180deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.footer::after {
+  content: "";
+  background: linear-gradient(180deg, #010203 9.9%, rgba(1, 2, 3, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 50%;
+  right: 0;
+}
+.footer__inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer__description {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  max-width: 165px;
+}
+.footer__description-text {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+.footer__description-text + .footer__description-text {
+  margin-top: 50px;
+}
+.footer__list {
+  list-style: none;
+}
+.footer__list + .footer__list {
+  margin-left: 100px;
+}
+.footer__item + .footer__item {
+  margin-top: 20px;
+}
+.footer__item_color_red {
+  color: #cb0e0e;
+}
+.footer__item-link {
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding-top: 30px;
+    padding-bottom: 70px;
+  }
+
+  .header__inner {
+    height: calc(100vh - 30px - 70px);
+  }
+
+  .header__login {
+    margin-right: 0;
+  }
+}
+@media (max-width: 895px) {
+  .header__description {
+    align-self: center;
+    padding: 0 20px;
+  }
+
+  .header__content {
+    align-self: center;
+  }
+
+  .header__description-text {
+    width: auto;
+  }
+
+  .header__content {
+    margin-top: 0;
+  }
+
+  .header__title {
+    font-size: 48px;
+    margin-bottom: 38px;
+  }
+
+  .header__title span {
+    font-size: 87px;
+    line-height: 40px;
+  }
+
+  .header__text {
+    font-size: 16px;
+    margin-bottom: 29px;
+  }
+
+  .menu__btn {
+    display: block;
+    position: relative;
+    z-index: 30;
+  }
+
+  .menu__list {
+    display: block;
+    background-color: #010203;
+    transition: all 1s ease !important;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding-left: 70px;
+    height: 0;
+  }
+
+  .menu__list_opened {
+    padding: 21px 0 20px 70px;
+  }
+
+  .menu__item {
+    margin-left: 0 !important;
+    padding: 10px 5px;
+  }
+}
+@media (max-width: 576px) {
+  .header__top {
+    flex-wrap: wrap;
+  }
+
+  .header__phone {
+    text-align: center;
+    order: 2;
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+
+  .header__login {
+    order: 1;
+  }
+
+  .header__title {
+    font-size: 33px;
+    line-height: 40px;
+  }
+
+  .header__title span {
+    font-size: 60px;
+  }
+
+  .header__text {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .header__btn {
+    font-size: 19px;
+    padding: 8px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
