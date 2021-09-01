@@ -19,6 +19,17 @@ a {
 button {
     color: inherit;
     cursor: pointer;
+
+    background-color: inherit;
+    transition: transform 0.3s ease;
+    outline: none;
+    border: none;
+
+    padding: 0;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 body {
@@ -27,4 +38,261 @@ body {
     font-weight: normal;
 
     position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    right: 0;
+    font-size: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+}
+
+.subtitle {
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 7.33333px;
+    text-transform: uppercase;
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+
+    margin-bottom: 8px;
+
+    &_pos_left {
+        text-align: right;
+
+        &::before {
+            content: '';
+
+            background-color: #ffffff;
+
+            display: inline-block;
+            margin-right: 23px;
+            transform: translateY(-6px);
+
+            width: 80px;
+            height: 1px;
+        }
+    }
+
+    &_pos_right {
+        text-align: left;
+
+        &::after {
+            content: '';
+
+            background-color: #ffffff;
+
+            display: inline-block;
+            margin-left: 23px;
+            transform: translateY(-6px);
+
+            width: 80px;
+            height: 1px;
+        }
+    }
+}
+
+.title {
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 80px;
+    text-transform: uppercase;
+}
+
+.slider-arrows {
+    &__arrow {
+        display: inline-block;
+
+        & + & {
+            margin-left: 20px;
+        }
+    }
+}
+
+.slider-dots {
+    display: flex;
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-top: 8px;
+
+        width: 200px;
+
+        & + & {
+            margin-left: 40px;
+        }
+
+        &::before {
+            content: '';
+
+            background-color: #ffffff;
+
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+
+            height: 4px;
+        }
+    }
+
+    &__item_selected {
+        &::before {
+            background-color: #4af6cd;
+        }
+    }
+
+    &__item-count {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 34px;
+        text-transform: uppercase;
+
+        flex: 1;
+    }
+
+    &__item-title {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: right;
+    }
+}
+
+.menu {
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+
+    width: 166px;
+
+    &__top {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: center;
+
+        height: 200px;
+        width: 100%;
+
+        margin-bottom: 110px;
+
+        &::after {
+            content: '';
+
+            background-color: #4af6cd;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+
+            height: 200px;
+        }
+    }
+
+    &__title {
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 86px;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+
+        margin-top: 110px;
+        width: 300px;
+
+        span {
+            font-weight: 400;
+        }
+    }
+
+    &__nav-lists {
+        margin-bottom: 40px;
+    }
+
+    &__nav-item {
+        & + & {
+            margin-top: 38px;
+        }
+    }
+
+    &__nav-link {
+        margin-bottom: 6px;
+        text-align: center;
+    }
+
+    &__nav-text {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+
+    &__search {
+        margin-bottom: 20px;
+    }
+
+    &__info {
+    }
+
+    &__info-day {
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 64px;
+        text-transform: uppercase;
+
+        margin-bottom: 17px;
+    }
+
+    &__info-time {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 1.4px;
+
+        margin-bottom: 30px;
+    }
+
+    &__info-position {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        letter-spacing: 1.05px;
+
+        img {
+            margin-right: 8px;
+        }
+
+        p {
+            display: inline-block;
+        }
+    }
 }
